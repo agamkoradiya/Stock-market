@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IntradayActivity">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Trade"
+                    android:textAlignment="center"
+                    android:textColor="#030303"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text=""
+                        android:textAlignment="inherit" />
+
+                    <TextView
+
+                        android:layout_width="3dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:fontFamily="serif-monospace"
+                        android:text="Buy"
+                        android:textAlignment="center" />
+
+                    <TextView
+
+                        android:layout_width="3dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:fontFamily="serif-monospace"
+                        android:text="Sell"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Price"
+                        android:textAlignment="inherit" />
+
+                    <TextView
+                        android:id="@+id/Buy_valid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/Sell_valid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Quantity"
+                        android:textAlignment="inherit" />
+
+                    <TextView
+                        android:id="@+id/Buy_Qunid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/Sell_Qunid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Brokerage/1"
+                        android:textAlignment="inherit" />
+
+                    <TextView
+                        android:id="@+id/Buy_brokerageid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/Sell_brokerageid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Net Price"
+                        android:textAlignment="inherit" />
+
+                    <TextView
+                        android:id="@+id/Buy_netvalid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/Sell_netvalid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:text="Charges"
+                    android:textAlignment="center"
+                    android:textColor="#030303"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.489"
+                app:layout_constraintStart_toStartOf="parent"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text=""
+                        android:textAlignment="inherit" />
+
+                    <TextView
+
+                        android:layout_width="3dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:fontFamily="serif-monospace"
+                        android:text="Buy"
+                        android:textAlignment="center" />
+
+                    <TextView
+
+                        android:layout_width="3dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:fontFamily="serif-monospace"
+                        android:text="Sell"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="50sp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Brokerage"
+                        android:textAlignment="inherit"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/Buy_totalbrokerageid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/Sell_totalbrokerageid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="50sp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Brokerage GST"
+                        android:textAlignment="inherit" />
+
+                    <TextView
+                        android:id="@+id/Buy_GSTid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/Sell_GSTid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="50sp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="STT"
+                        android:textAlignment="inherit" />
+
+                    <TextView
+                        android:id="@+id/Buy_STTid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/Sell_STTid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="50sp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Stamp Duty"
+                        android:textAlignment="inherit" />
+
+                    <TextView
+                        android:id="@+id/Buy_stampdutyid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/Sell_stampdutyid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="50sp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="SEBI fees"
+                        android:textAlignment="inherit" />
+
+                    <TextView
+                        android:id="@+id/Buy_SEBIid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/Sell_SEBIid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="50sp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Exchange fees"
+                        android:textAlignment="inherit" />
+
+                    <TextView
+                        android:id="@+id/Buy_exchangeid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/Sell_exchangeid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="50sp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Total Charges"
+                        android:textAlignment="inherit" />
+
+                    <TextView
+                        android:id="@+id/Buy_totalchargesid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/Sell_totalchargesid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.489"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+                app:layout_constraintVertical_bias="0.266">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="50sp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="TurnOver"
+                        android:textAlignment="inherit"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/Buy_turnoverid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/Sell_turnoverid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="50sp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Total TurnOver"
+                        android:textAlignment="inherit"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/Buy_totalturnoverid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/Sell_totalturnoverid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="50sp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="MTM Profit/Loss"
+                        android:textAlignment="inherit"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/MIM_profitlossid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="50sp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Net Profit/Loss"
+                        android:textAlignment="inherit"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/Net_profitlossid"
+                        android:layout_width="3dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/box"
+                        android:textAlignment="center" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

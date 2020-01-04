@@ -1,0 +1,235 @@
+package com.example.stockmarket;
+
+        import androidx.appcompat.app.AppCompatActivity;
+
+        import android.content.Intent;
+        import android.os.Bundle;
+        import android.text.TextUtils;
+        import android.widget.TextView;
+
+        import org.w3c.dom.Text;
+
+        import static java.sql.Types.NULL;
+
+public class DeliveryActivity extends AppCompatActivity {
+
+
+        TextView Buy_val1,
+                 Sell_val1,
+                 Buy_Qun,
+                 Sell_Qun,
+                 Buy_brokerage,
+                 Sell_brokerage,
+                 Buy_netval,
+                 Sell_netval,
+                 Buy_totalbrokerage,
+                 Sell_totalbrokerage,
+                 Buy_GST,
+                 Sell_GST,
+                 Buy_STT,
+                 Sell_STT,
+                 Buy_stampduty,
+                 Sell_stampduty,
+                 Buy_SEBI,
+                 Sell_SEBI,
+                 Buy_exchange,
+                 Sell_exchange,
+                 Buy_totalcharges,
+                 Sell_totalcharges,
+                 Buy_turnover,
+                 Sell_turnover,
+                 Buy_totalturnover,
+                 Sell_totalturnover,
+                 MIM_profitloss,
+                 Net_profitloss;
+
+
+// extra variable===
+
+        float buybrokeragevalue;
+        float sellbrokeragevalue;
+        float buynetprice;
+        float sellnetprice;
+        float buytotalbrokerage;
+        float selltotalbrokerage;
+        float buygst;
+        float sellgst;
+        float buysttprice;
+        float sellsttprice;
+        float buystampduty;
+        float sellstampduty;
+        float buysebicharge;
+        float sellsebicharge;
+        float buyexchangefees;
+        float sellexchangefees;
+        float buytotalcharges;
+        float selltotalcharges;
+        float buyturnover;
+        float sellturnover;
+        float buytotalturnover;
+        float selltotalturnover;
+        float mtmprofitloss;
+        float netprofitloss;
+
+        float rateonbrokerage=0.5f;
+        float percentage=100;
+
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_delivery);
+
+        Intent intent = getIntent();
+        String Buy_val = intent.getStringExtra(MainActivity.MSG1);
+        String Sell_val = intent.getStringExtra(MainActivity.MSG2);
+        String Qun = intent.getStringExtra(MainActivity.MSG3);
+        float BSENSE_charge  = intent.getFloatExtra("consumOn", 0);
+
+//callby id:
+
+        Buy_val1=(TextView)findViewById(R.id.Buy_valid);
+        Sell_val1=(TextView)findViewById(R.id.Sell_valid);
+        Buy_Qun=(TextView)findViewById(R.id.Buy_Qunid);
+        Sell_Qun=(TextView)findViewById(R.id.Sell_Qunid);
+        Buy_brokerage=(TextView)findViewById(R.id.Buy_brokerageid);
+        Sell_brokerage=(TextView)findViewById(R.id.Sell_brokerageid);
+        Buy_netval=(TextView)findViewById(R.id.Buy_netvalid);
+        Sell_netval=(TextView)findViewById(R.id.Sell_netvalid);
+        Buy_totalbrokerage=(TextView)findViewById(R.id.Buy_totalbrokerageid);
+        Sell_totalbrokerage=(TextView)findViewById(R.id.Sell_totalbrokerageid);
+        Buy_GST=(TextView)findViewById(R.id.Buy_GSTid);
+        Sell_GST=(TextView)findViewById(R.id.Sell_GSTid);
+        Buy_STT=(TextView)findViewById(R.id.Buy_STTid);
+        Sell_STT=(TextView)findViewById(R.id.Sell_STTid);
+        Buy_stampduty=(TextView)findViewById(R.id.Buy_stampdutyid);
+        Sell_stampduty=(TextView)findViewById(R.id.Sell_stampdutyid);
+        Buy_SEBI=(TextView)findViewById(R.id.Buy_SEBIid);
+        Sell_SEBI=(TextView)findViewById(R.id.Sell_SEBIid);
+        Buy_exchange=(TextView)findViewById(R.id.Buy_exchangeid);
+        Sell_exchange=(TextView)findViewById(R.id.Sell_exchangeid);
+        Buy_totalcharges=(TextView)findViewById(R.id.Buy_totalchargesid);
+        Sell_totalcharges=(TextView)findViewById(R.id.Sell_totalchargesid);
+        Buy_turnover=(TextView)findViewById(R.id.Buy_turnoverid);
+        Sell_turnover=(TextView)findViewById(R.id.Sell_turnoverid);
+        Buy_totalturnover=(TextView)findViewById(R.id.Buy_totalturnoverid);
+        Sell_totalturnover=(TextView)findViewById(R.id.Sell_totalturnoverid);
+        MIM_profitloss=(TextView)findViewById(R.id.MIM_profitlossid);
+        Net_profitloss=(TextView)findViewById(R.id.Net_profitlossid);
+
+//if anyone enter empty tag so fuck=
+        if(TextUtils.isEmpty(Buy_val)) {
+            Buy_val=String.valueOf(0);
+        }
+
+        if(TextUtils.isEmpty(Sell_val)) {
+            Sell_val=String.valueOf(0);
+        }
+
+        if(TextUtils.isEmpty(Qun)) {
+            Qun=String.valueOf(0);
+
+        }
+
+//Pre define :=====
+       Buy_val1.setText(String.valueOf(Buy_val));
+       Sell_val1.setText(String.valueOf(Sell_val));
+       Buy_Qun.setText(String.valueOf(Qun));
+       Sell_Qun.setText(String.valueOf(Qun));
+//       Buy_exchange.setText(String.valueOf(BSENSE_charge));
+//       Sell_exchange.setText(String.valueOf(BSENSE_charge));
+
+//set brokrage ===
+
+            buybrokeragevalue = Float.parseFloat(Buy_val)*rateonbrokerage/percentage;
+            Buy_brokerage.setText(String.valueOf(buybrokeragevalue));
+
+            sellbrokeragevalue = Float.parseFloat(Sell_val) * rateonbrokerage/percentage;
+            Sell_brokerage.setText(String.valueOf(sellbrokeragevalue));
+
+
+//set netprice===
+         buynetprice=Float.parseFloat(Buy_val)+buybrokeragevalue;
+         Buy_netval.setText(String.valueOf(buynetprice));
+
+         sellnetprice=Float.parseFloat(Sell_val)+sellbrokeragevalue;
+         Sell_netval.setText(String.valueOf(sellnetprice));
+
+
+//Charges:-------
+//-------
+
+//set total brokeraget=
+        buytotalbrokerage=buybrokeragevalue*Float.parseFloat(Qun);
+        Buy_totalbrokerage.setText(String.valueOf(buytotalbrokerage));
+
+        selltotalbrokerage=sellbrokeragevalue*Float.parseFloat(Qun);
+        Sell_totalbrokerage.setText(String.valueOf(selltotalbrokerage));
+
+//set Brokerage GST==
+        buygst=buytotalbrokerage*18/percentage;
+        Buy_GST.setText(String.valueOf(buygst));
+
+        sellgst=selltotalbrokerage*18/percentage;
+        Sell_GST.setText(String.valueOf(sellgst));
+
+//set buy Turn over==
+        buyturnover=Float.parseFloat(Buy_val)*Float.parseFloat(Qun);
+        Buy_turnover.setText(String.valueOf(buyturnover));
+
+        sellturnover=Float.parseFloat(Sell_val)*Float.parseFloat(Qun);
+        Sell_turnover.setText(String.valueOf(sellturnover));
+
+//set STT Price==
+        buysttprice=buyturnover*0.1f/percentage;
+        Buy_STT.setText(String.valueOf(buysttprice));
+
+        sellsttprice=sellturnover*0.1f/percentage;
+        Sell_STT.setText(String.valueOf(sellsttprice));
+
+//set Stamp Duty==
+        buystampduty=buyturnover*0.01f/percentage;
+        Buy_stampduty.setText(String.valueOf(buystampduty));
+
+        sellstampduty=sellturnover*0.01f/percentage;
+        Sell_stampduty.setText(String.valueOf(sellstampduty));
+
+//set SEBI Fees==
+        buysebicharge=buyturnover*0.0002f/percentage;
+        Buy_SEBI.setText(String.valueOf(buysebicharge));
+
+        sellsebicharge=sellturnover*0.0002f/percentage;
+        Sell_SEBI.setText(String.valueOf(sellsebicharge));
+
+//set Exchange fees==
+        buyexchangefees=buyturnover*BSENSE_charge/percentage;
+        Buy_exchange.setText(String.valueOf(buyexchangefees));
+
+        sellexchangefees=sellturnover*BSENSE_charge/percentage;
+        Sell_exchange.setText(String.valueOf(sellexchangefees));
+
+//set TOTAL Charges==
+        buytotalcharges = buytotalbrokerage + buygst + buysttprice + buystampduty + buysebicharge + buyexchangefees;
+        Buy_totalcharges.setText(String.valueOf(buytotalcharges));
+
+        selltotalcharges = selltotalbrokerage + sellgst + sellsttprice + sellstampduty + sellsebicharge + sellexchangefees;
+        Sell_totalcharges.setText(String.valueOf(selltotalcharges));
+
+//set TOTAL Turn Over==
+        buytotalturnover = buyturnover+buytotalcharges;
+        Buy_totalturnover.setText(String.valueOf(buytotalturnover));
+
+        selltotalturnover = sellturnover-selltotalcharges;
+        Sell_totalturnover.setText(String.valueOf(selltotalturnover));
+
+//set MTM Profit/Loss==
+        mtmprofitloss=sellturnover-buyturnover;
+        MIM_profitloss.setText(String.valueOf(mtmprofitloss));
+
+//set NET Profit/Loss==
+        netprofitloss=selltotalturnover-buytotalturnover;
+        Net_profitloss.setText(String.valueOf(netprofitloss));
+
+    }
+}
